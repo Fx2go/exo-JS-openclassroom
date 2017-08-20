@@ -15,6 +15,32 @@
 			      champ.style.backgroundColor = "";
 			}
 
+			function verifPseudo(champ) //fonction pour vérifier la longueur du pseudo (entre 2 et 25 caractères)
+			{			
+				var saisie=champ.value;
+
+				var PseudoOK =(saisie.length>=2&&saisie.length<=25)?true:false;
+
+				surligne(champ, !PseudoOK);
+				return PseudoOK;
+
+
+			}
+
+			function verifEmail()//fonction pour vérifier l'adresse e-mail (en utilisant de préférence une regex)
+			{}
+
+			function verifAge()//fonction pour vérifier l'âge (on va dire qu'il doit être compris entre 5 et 111 ans)
+			{}
+
+			function verifTOUT()//fonction pour vérifier qui vérifie tout (à partir des précédentes)
+			{
+				if(!verifPseudo()||!verifEmail()||!verifAge())
+				{
+					alert('Merci de renseigner correctement les champs en rouge')
+				}
+			}
+
 
           -->
           </script>
@@ -22,12 +48,12 @@
 
      </head>
      <body>
-		<form action="page.php">
+		<form action="page.php" id="idForm">
 		  <p>
-		    Pseudo : <input type="text" name="pseudo" /><br />
-		    E-mail : <input type="text" name="email" size="30" /><br />
-		    Âge : <input type="text" name="age" size="2" /> ans<br />
-		    <input type="submit" value="Valider" />
+		    Pseudo : <input type="text" name="pseudo" onblur="verifPseudo(this);" /><br />
+		    E-mail : <input type="text" name="email" size="30" onblur="verifEmail()" /><br />
+		    Âge : <input type="text" name="age" size="2" onblur="verifAge()"/> ans<br />
+		    <input type="submit" value="Valider" onclick="verifTOUT()" />
 		  </p>
 		</form>
 
