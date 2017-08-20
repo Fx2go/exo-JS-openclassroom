@@ -18,11 +18,10 @@
 			function verifPseudo(champ) //fonction pour vérifier la longueur du pseudo (entre 2 et 25 caractères)
 			{			
 				var saisie=champ.value;
+				var ValeurOK =(saisie.length>=2&&saisie.length<=25)?true:false;
 
-				var PseudoOK =(saisie.length>=2&&saisie.length<=25)?true:false;
-
-				surligne(champ, !PseudoOK);
-				return PseudoOK;
+				surligne(champ, !ValeurOK);
+				return ValeurOK;
 
 
 			}
@@ -30,8 +29,14 @@
 			function verifEmail()//fonction pour vérifier l'adresse e-mail (en utilisant de préférence une regex)
 			{}
 
-			function verifAge()//fonction pour vérifier l'âge (on va dire qu'il doit être compris entre 5 et 111 ans)
-			{}
+			function verifAge(champ)//fonction pour vérifier l'âge (on va dire qu'il doit être compris entre 5 et 111 ans)
+			{
+				var saisie=champ.value;
+				var ValeurOK =(saisie>=5&&saisie<=111)?true:false;
+
+				surligne(champ, !ValeurOK);
+				return ValeurOK;
+			}
 
 			function verifTOUT()//fonction pour vérifier qui vérifie tout (à partir des précédentes)
 			{
@@ -52,7 +57,7 @@
 		  <p>
 		    Pseudo : <input type="text" name="pseudo" onblur="verifPseudo(this);" /><br />
 		    E-mail : <input type="text" name="email" size="30" onblur="verifEmail()" /><br />
-		    Âge : <input type="text" name="age" size="2" onblur="verifAge()"/> ans<br />
+		    Âge : <input type="text" name="age" size="2" onblur="verifAge(this)"/> ans<br />
 		    <input type="submit" value="Valider" onclick="verifTOUT()" />
 		  </p>
 		</form>
