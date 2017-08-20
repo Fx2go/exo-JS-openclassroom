@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+     <head>
+          <title>Liste des plats que la personne aime</title>
+          <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+
+
+          <script type="text/javascript">
+          <!--
+
+          function platsFavoris()
+			{
+			     var cases = document.getElementById("idForm").mesCases;
+			     var listePlats= "";
+			     // on recherche les bouton cochés (s'il y en a un)
+			     for(var i=0; i<cases.length; i++)
+			          if(cases[i].checked)
+			               listePlats += '\n \u2713'+cases[i].value;
+		 
+			     // s'il y en a un, on affiche la valeur correspondante
+				if(listePlats)  
+				{
+					// Si l'utilisateur aime la tarte, on s'inquiète...
+					if(document.getElementById("idForm").mesCases[5].checked) 
+					{
+						listePlats += '\n'+"Oups...Êtes vous vraiment sûr d\'apprécier la tarte aux phalanges?!!"
+					};
+
+					alert("Vos plats favoris sont : " + listePlats);
+				}
+					else {
+						alert("Snif...Vous n'avez pas de plat favori dans cette liste.");
+						}
+			}
+
+          </script>
+
+
+     </head>
+     <body>
+
+     <form id="idForm" method="post" action="#" >
+
+		Merci de cocher vos plats favoris : <br />
+		   <input type="checkbox" name="mesCases" value="Les Sushis" /> les Sushis<br />
+		   <input type="checkbox" name="mesCases" value="le Foie Gras" /> le Foie Gras <br />
+		   <input type="checkbox" name="mesCases" value="la Paella" /> la Paella <br />
+		   <input type="checkbox" name="mesCases" value="le Bô Bun" /> le Bô Bun <br />
+		   <input type="checkbox" name="mesCases" value="le Phô" /> le Phô <br />
+		   <input type="checkbox" name="mesCases" value="la tarte aux Phalanges" /> la tarte aux Phalanges<br />
+		   <input type="button" value="Synthèse" onclick="platsFavoris()" />
+
+
+     	
+     </form>
+
+
+  
+
+     </body>
+</html>
