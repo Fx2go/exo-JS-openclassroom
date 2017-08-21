@@ -19,6 +19,7 @@
 			function verifPseudo(champ) //fonction pour vérifier la longueur du pseudo (entre 2 et 25 caractères)
 			{			
 				var saisie=champ.value;
+				// Alert('Saisie champ Pseudo=='+saisie);
 				var ValeurOK =(saisie.length>=2&&saisie.length<=25)?true:false;
 
 				surligne(champ, !ValeurOK);
@@ -30,7 +31,7 @@
 			function verifEmail(champ)//fonction pour vérifier l'adresse e-mail (en utilisant de préférence une regex)
 			{
 				var saisie=champ.value;
-
+				// Alert('Saisie champ email=='+saisie);
 				var ValeurOK =(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(saisie))?true:false;
 
 				surligne(champ, !ValeurOK);
@@ -41,21 +42,24 @@
 			function verifAge(champ)//fonction pour vérifier l'âge (on va dire qu'il doit être compris entre 5 et 111 ans)
 			{
 				var saisie=champ.value;
+				// Alert('Saisie champ Age=='+saisie);
+
 				var ValeurOK =(saisie>=5&&saisie<=111)?true:false;
 
 				surligne(champ, !ValeurOK);
 				return ValeurOK;
 			}
 
-			function verifTOUT(champ)//fonction qui vérifie tout (à partir des précédentes)
+			function verifTOUT(formulaire)//fonction qui vérifie tout (à partir des précédentes)
 			{
-				var formOK;
-				var pseudoOK= champ.pseudo;
-				alert('pseudoOK=='+pseudoOK);
-				// if(!verifPseudo(champ.['pseudo'])||!verifEmail(champ.['email'])||!verifAge(champ.['age']))
-				// {
-				// 	alert('Merci de renseigner correctement les champs en rouge');
-				// }
+			alert('champ pseudo='+formulaire.pseudo.value);
+			alert('champ email='+formulaire.email.value);
+			alert('champ age='+formulaire.age.value);
+
+				if(verifPseudo(formulaire.pseudo.value)||verifEmail(formulaire.email.value)||verifAge(formulaire.age.value))
+				{
+					alert('Merci de renseigner correctement les champs en rouge');
+				}
 			}
 
 
@@ -70,7 +74,7 @@
 		    Pseudo : <input type="text" name="pseudo" onblur="verifPseudo(this);" /><br />
 		    E-mail : <input type="text" name="email" size="30" onblur="verifEmail(this)" /><br />
 		    Âge : <input type="text" name="age" size="2" onblur="verifAge(this)"/> ans<br />
-		    <input type="submit" value="Valider" onclick="verifTOUT(this)" />
+		    <input type="submit" value="Valider" onclick="verifTOUT(document.getElementById('idForm')" />
 		  </p>
 		</form>
 
