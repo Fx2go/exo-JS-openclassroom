@@ -52,14 +52,19 @@
 
 			function verifTOUT(formulaire)//fonction qui vérifie tout (à partir des précédentes)
 			{
-			alert('champ pseudo='+formulaire.pseudo.value);
-			alert('champ email='+formulaire.email.value);
-			alert('champ age='+formulaire.age.value);
+				verifPseudo(formulaire.pseudo);
+				verifEmail(formulaire.email);
+				verifAge(formulaire.age);
 
-				if(verifPseudo(formulaire.pseudo.value)||verifEmail(formulaire.email.value)||verifAge(formulaire.age.value))
+				if(verifPseudo(formulaire.pseudo)&&verifEmail(formulaire.email)&&verifAge(formulaire.age))
 				{
-					alert('Merci de renseigner correctement les champs en rouge');
+					formOK=true;
+					return formOK;
+					
 				}
+					formOK=false;
+					alert('Merci de renseigner correctement le\(s\) champ\(s\) en rouge');
+					return formOK;
 			}
 
 
@@ -69,12 +74,12 @@
 
      </head>
      <body>
-		<form action="#" id="idForm">
+		<form action="page.php" id="idForm" onsubmit="return verifTOUT(this)">
 		  <p>
 		    Pseudo : <input type="text" name="pseudo" onblur="verifPseudo(this);" /><br />
 		    E-mail : <input type="text" name="email" size="30" onblur="verifEmail(this)" /><br />
-		    Âge : <input type="text" name="age" size="2" onblur="verifAge(this)"/> ans<br />
-		    <input type="submit" value="Valider" onclick="verifTOUT(document.getElementById('idForm')" />
+			Âge : <input type="text" name="age" size="2" onblur="verifAge(this)"/> ans<br />
+		    <input type="submit" value="Valider"  />
 		  </p>
 		</form>
 
