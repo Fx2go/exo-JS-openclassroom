@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+	<head>
+		<title>L'objet image</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+
+				<script type="text/javascript">
+				<!--
+					function changerImage(img, src, maxWidth, maxHeight)
+				{
+				   var image = new Image();
+				 
+				   image.onerror = function()
+				   {
+				      alert("Erreur lors du chargement de l'image");
+				   }
+				 
+				   image.onabort = function()
+				   {
+				      alert("Chargement interrompu");
+				   }
+				 
+				   // une fois l'image chargée :
+				   image.onload = function()
+				   {
+				      // si l'image est désignée par son id
+				      if(typeof img == "string")
+				         img = document.getElementById(img);
+				 
+				      // si l'image doit être redimensionnée
+				      var reduction = 1;
+				      if(maxWidth && maxHeight)
+				         if(image.width > maxWidth || image.height > maxHeight)
+				            reduction = Math.max(image.width/maxWidth, image.height/maxHeight);
+				 
+				      // on affiche l'image
+				      img.src = image.src;
+				      img.width = Math.round(image.width / reduction);
+				      img.height = Math.round(image.height / reduction);
+				   }
+				 
+				   image.src = src;
+				}
+			
+				</script>
+
+	</head>
+	<body>
+		<img src="https://cdn.pixabay.com/photo/2017/08/07/22/57/coffee-2608864__340.jpg" id="monImage" alt="">
+		<ul>Exemples d'adresses d'images :
+			<li>https://cdn.pixabay.com/photo/2017/07/15/13/21/lotus-flower-2506451_960_720.jpg</li>
+			<li>https://cdn.pixabay.com/photo/2017/08/12/19/01/walking-2635038_960_720.jpg</li>
+			<li>https://cdn.pixabay.com/photo/2017/07/24/12/43/schrecksee-2534484_960_720.jpg</li>
+			<li>https://cdn.pixabay.com/photo/2017/04/04/14/24/turtle-2201433_960_720.jpg</li>
+			<li>https://cdn.pixabay.com/photo/2017/04/01/15/42/surfer-2193859_960_720.jpg</li>
+		<ul>
+		<script type="text/javascript">
+
+		<!--
+
+			var src=prompt("Quelle est l'adresse de la nouvelle image ? ");
+			var maxWidth=prompt("Quelle est sa largeur max d'affichage?");
+			var maxHeight=prompt("Quelle est sa hauteur max d'affichage?");
+			changerImage("monImage",src,maxWidth,maxHeight);
+		-->
+		</script>
+		
+	
+
+	</body>
+</html>
