@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+	<head>
+		<title>TP Split Email</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+
+				<script type="text/javascript">
+				<!--
+				function verifMail(email)
+					{
+						var position_at=email.indexOf('@');
+						var position_dot=email.lastIndexOf('.');
+						return (position_at>0 &&position_dot >= position_at +2);
+					}
+
+					
+			
+				</script>
+
+	</head>
+	<body>
+		<script type="text/javascript">
+		<!--
+		var emailSaisi=prompt('Entrer votre adresse email');
+		if(verifMail(emailSaisi))
+			alert("\'"+emailSaisi+"\' ressemble à une adresse email valide");
+		else
+			{alert("\'"+emailSaisi+"\' n'est pas une adresse email valide");
+			//window.location.reload();
+			}
+
+		var mailDecoup = emailSaisi.split('@');
+
+		alert('Votre pseudo est \"'+mailDecoup[0]+'\"');
+		alert('Le domaine de votre adresse est \"'+mailDecoup[1]+'\"');
+		
+
+		-->
+		</script>
+		
+	
+
+	</body>
+</html>
