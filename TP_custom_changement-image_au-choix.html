@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+	<head>
+		<title>Changement d'image et de taille</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+
+				<script type="text/javascript">
+				<!--
+					function changerImage(img, src, maxWidth, maxHeight)
+				{
+				   var image = new Image();
+				 
+				   image.onerror = function()
+				   {
+				      alert("Erreur lors du chargement de l'image");
+				   }
+				 
+				   image.onabort = function()
+				   {
+				      alert("Chargement interrompu");
+				   }
+				 
+				   // une fois l'image chargée :
+				   image.onload = function()
+				   {
+				      // si l'image est désignée par son id
+				      if(typeof img == "string")
+				         img = document.getElementById(img);
+				 
+				      // si l'image doit être redimensionnée
+				      var reduction = 1;
+				      if(maxWidth && maxHeight)
+				         if(image.width > maxWidth || image.height > maxHeight)
+				            reduction = Math.max(image.width/maxWidth, image.height/maxHeight);
+				 
+				      // on affiche l'image
+				      img.src = image.src;
+				      img.width = Math.round(image.width / reduction);
+				      img.height = Math.round(image.height / reduction);
+				   }
+				 
+				   image.src = src;
+				}
+			
+				</script>
+
+	</head>
+	<body>
+		
+<script type="text/javascript">
+
+		<!--
+			
+			var TabImg= new Array ;
+			TabImg['cafe']="https://cdn.pixabay.com/photo/2015/07/12/14/26/coffee-842020_960_720.jpg";
+			TabImg['boxe']="https://fansided.com/wp-content/uploads/getty-images/2017/01/593236868-boxing-olympics-day-16.jpg";
+			TabImg['code']="https://cdn.pixabay.com/photo/2017/03/04/12/15/programming-2115930_960_720.jpg";
+
+
+		-->
+		</script>
+<h2>Je change d'image selon mon envie</h2>	
+<p>
+		<select id="selectSrc">
+			<option value="cafe">Se réveiller</option>
+			<option value="code">Créer</option>
+			<option value="boxe">Transpirer</option>
+		</select>
+
+		<select id="selectTailleMax">
+			<option value="150">Un peu</option>
+			<option value="500">Beaucoup</option>
+			<option value="1000">Passionnément</option>
+		</select>
+
+
+
+
+<button type="button" onclick="changerImage('monImage',TabImg[document.getElementById('selectSrc').options[document.getElementById('selectSrc').selectedIndex].value],maxWidth=document.getElementById('selectTailleMax').options[document.getElementById('selectTailleMax').selectedIndex].value,document.getElementById('selectTailleMax').options[document.getElementById('selectTailleMax').selectedIndex].value)">Changer</button>
+
+</p>
+<!--Image par défaut-->
+<img src="https://cdn.pixabay.com/photo/2015/07/12/14/26/coffee-842020_960_720.jpg" id="monImage" alt="">
+
+
+
+</script>
+		
+
+	</body>
+</html>
