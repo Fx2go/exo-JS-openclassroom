@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+	<head>
+		<title>Changement de style par JS</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+				<style>
+				div{
+					width:450px;
+					height:200px;
+
+					background:  url('http://www.abvent.com/support/forum/attachments/artlantis/75.jpg')
+				}
+				#monDiv{
+					visibility:hidden;
+					background: url("http://i.dailymail.co.uk/i/pix/2009/02/13/article-1144226-0380E531000005DC-646_468x222.jpg") no-repeat;
+				}
+				</style>
+
+				<script type="text/javascript">
+
+				function toggleVisibility(elmt)
+					{
+					   if(typeof elmt == "string")
+					      elmt = document.getElementById(elmt);
+					   if(elmt.style.visibility == "hidden")
+					      elmt.style.visibility = "visible";
+					   else
+					      elmt.style.visibility = "hidden";
+					}
+
+					function toggleDisplay(elmt)
+					{
+					   if(typeof elmt == "string")
+					      elmt = document.getElementById(elmt);
+					   if(elmt.style.display == "none")
+					      elmt.style.display = "";
+					   else
+					      elmt.style.display = "none";
+					}
+				</script>
+				
+
+	</head>
+	<body>
+			<button onclick="toggleVisibility('monDiv')">Visibility / monDiv</button>
+			<button onclick="toggleDisplay('monDiv')">Display / monDiv</button>
+			<div></div>
+			<div id="monDiv">monDiv</div>
+			<div></div>
+
+		
+	
+
+	</body>
+</html>
